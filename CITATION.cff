@@ -1,9 +1,11 @@
-@software{ComputationalDesignLibrary,
-  author = {Brendan Harmon},
-  doi = {10.5281/zenodo.8191265},
-  month = {07},
-  title = {{Computational Design Library}},
-  url = {https://github.com/baharmon/computational-design-library},
-  version = {1.0.0},
-  year = {2023}
-}
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Harmon"
+  given-names: "Brendan"
+  orcid: "https://orcid.org/0000-0002-6218-9318"
+title: "Computational Design Library"
+version: 1.0.0
+doi: 10.5281/zenodo.8191265
+date-released: 2023-07-28
+url: "https://github.com/baharmon/computational-design-library"
