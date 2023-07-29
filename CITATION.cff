@@ -1,9 +1,9 @@
 @software{ComputationalDesignLibrary,
-title = {Computational Design Library},
-author = {Brendan Harmon},
-year = {2023},
-license = {MIT License},
-doi = {10.5281/zenodo.8191265},
-version = {1.0.0},
-repository = {https://github.com/baharmon/computational-design-library}
+  author = {Brendan Harmon},
+  doi = {10.5281/zenodo.8191265},
+  month = {07},
+  title = {{Computational Design Library}},
+  url = {https://github.com/baharmon/computational-design-library},
+  version = {1.0.0},
+  year = {2023}
 }
