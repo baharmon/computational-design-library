@@ -8,7 +8,7 @@ __email__ = "brendan.harmon@gmail.com"
 __license__ = "MIT"
 __version__ = "1.0.0"
 
-# requirements: lazrs, laspy
+# requirements: lazrs, laspy, numpy
 import pathlib
 import os
 import laspy
