@@ -3,7 +3,7 @@ This repository contains Python scripts
 and Grasshopper definitions for the book
 **Computational Design for Landscape Architects**.
 The accompanying data is available online at:
-https://doi.org/10.5281/zenodo.8191265. 
+https://doi.org/10.5281/zenodo.8191264. 
 Additional point clouds are available at:
 https://xyz.cct.lsu.edu. 
 
