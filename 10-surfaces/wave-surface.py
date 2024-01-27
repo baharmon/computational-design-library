@@ -30,11 +30,17 @@ f = 0.1
 
 # plot surface
 x, y = np.meshgrid(u, v)
-z = ((a * np.sin(b * x - c) + d)
+z = (
+    (a * np.sin(b * x - c) + d)
     * np.e**(-f * x)
     * (a * np.cos(b * y - c) + d)
-    * np.e**(-f * y))
-plot = ax.plot_surface(x, y, z, cmap='viridis', linewidth=0.25)
+    * np.e**(-f * y)
+    )
+plot = ax.plot_surface(
+    x, y, z,
+    cmap='viridis',
+    linewidth=0.25
+    )
 
 # set axes label
 ax.set_xlabel('x', labelpad=10)

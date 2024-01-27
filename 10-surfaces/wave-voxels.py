@@ -24,16 +24,37 @@ w = 10
 
 # plot voxels
 x, y, z = np.indices((u, v, w))
-volume = z < w/2 * np.sin(x)*np.cos(y) + w/2
+volume = (
+    z < w/2
+    * np.sin(x)
+    * np.cos(y)
+    + w/2
+    )
 ax = plt.subplot(projection='3d')
-norm = mpl.colors.Normalize(vmin=z.min(), vmax=z.max())
+norm = mpl.colors.Normalize(
+    vmin=z.min(),
+    vmax=z.max()
+    )
 colors = plt.cm.inferno(norm(z))
-ax.voxels(volume, facecolors=colors, edgecolor='w', linewidth=0.5)
+ax.voxels(
+    volume,
+    facecolors=colors,
+    edgecolor='w',
+    linewidth=0.5
+    )
 
 # create legend
-legend = plt.cm.ScalarMappable(cmap=plt.cm.inferno, norm=norm)
+legend = plt.cm.ScalarMappable(
+    cmap=plt.cm.inferno,
+    norm=norm
+    )
 legend.set_array([])
-plt.colorbar(legend, shrink=0.5, aspect=16)
+plt.colorbar(
+    legend,
+    shrink=0.5,
+    aspect=16,
+    ax=plt.gca()
+    )
 
 # save as image
 fig = ax.get_figure()

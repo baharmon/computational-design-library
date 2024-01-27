@@ -30,11 +30,18 @@ f = 0.1
 
 # plot points
 x, y = np.meshgrid(u, v)
-z = ((a * np.sin(b * x - c) + d)
+z = (
+    (a * np.sin(b * x - c) + d)
     * np.e**(-f * x)
     * (a * np.cos(b * y - c) + d)
-    * np.e**(-f * y))
-plot = ax.scatter(x, y, z, c=z, s=5, cmap='inferno')
+    * np.e**(-f * y)
+    )
+plot = ax.scatter(
+    x, y, z,
+    c=z,
+    s=5,
+    cmap='inferno'
+    )
 
 # set axes label
 ax.set_xlabel('x', labelpad=10)

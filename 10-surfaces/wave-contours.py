@@ -30,11 +30,18 @@ f = 0.1
 
 # plot contours
 x, y = np.meshgrid(u, v)
-z = ((a * np.sin(b * x - c) + d)
+z = (
+    (a * np.sin(b * x - c) + d)
     * np.e**(-f * x)
     * (a * np.cos(b * y - c) + d)
-    * np.e**(-f * y))
-plot = ax.contour(x, y, z, levels=50, linewidths=1.5, cmap='inferno')
+    * np.e**(-f * y)
+    )
+plot = ax.contour(
+    x, y, z,
+    levels=50,
+    linewidths=1.5,
+    cmap='inferno'
+    )
 
 # set axes label
 ax.set_xlabel('x', labelpad=10)
