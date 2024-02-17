@@ -3,6 +3,7 @@
 
 # requirements: numpy
 import numpy as np
+import Rhino
 import rhinoscriptsyntax as rs
 import scriptcontext as sc
 sc.doc = Rhino.RhinoDoc.ActiveDoc
