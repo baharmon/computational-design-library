@@ -5,7 +5,7 @@ authors:
   given-names: "Brendan"
   orcid: "https://orcid.org/0000-0002-6218-9318"
 title: "Computational Design Library"
-version: 1.0.0
+version: 1.0.2
 doi: 10.5281/zenodo.8191264
-date-released: 2023-07-28
+date-released: 2024-02-16
 url: "https://github.com/baharmon/computational-design-library"
