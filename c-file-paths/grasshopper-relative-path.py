@@ -9,10 +9,9 @@ __license__ = "MIT"
 __version__ = "1.0.0"
 
 # import modules
-import pathlib
 import os
 
 # set path
-datapath = pathlib.Path(__file__).parent.absolute()
+datapath = os.path.dirname(ghdoc.Path)
 Path = os.path.join(datapath, Filename)
 print(Path)
