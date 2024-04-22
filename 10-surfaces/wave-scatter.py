@@ -14,6 +14,8 @@ __version__ = "1.0.0"
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+# set theme
 sns.set(style = "whitegrid")
 
 # create plot

@@ -1,5 +1,12 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+"""
+Import White Sands raster
+"""
+
+__author__ = "Brendan Harmon"
+__copyright__ = "Copyright 2023, Brendan Harmon"
+__email__ = "brendan.harmon@gmail.com"
+__license__ = "MIT"
+__version__ = "1.0.0"
 
 # import modules
 import pathlib
@@ -12,15 +19,16 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import numpy as np
 import seaborn as sns
 
-# set style
-sns.set_style("white")
+# set theme
+sns.set_theme(
+    style="white",
+    font_scale=1.25
+    )
 
 # set path
 datapath = pathlib.Path(__file__).parent.resolve()
 dataset = os.path.join(
     datapath,
-    'data',
-    'white-sands',
     'output.mean.tif'
     )
 
@@ -51,7 +59,7 @@ fig.colorbar(
 fig.set_size_inches(8.5, 8.5)
 pyplot.tight_layout()
 fig.savefig(
-    'white-sands-dem.png',
+    'white-sands-dem.pdf',
     dpi=300,
     bbox_inches='tight',
     pad_inches=0.2

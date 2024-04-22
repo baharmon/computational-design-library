@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Plot 1D matrix of random floats
+Plot 1D matrix with Poisson distribution
 """
 
 __author__ = "Brendan Harmon"
@@ -18,25 +18,21 @@ import numpy as np
 # set theme
 sns.set_theme(style="darkgrid")
 
-# generate random floats
+# generate poisson distribution
 rng = np.random.default_rng()
-z = rng.random(1000)
+z = rng.poisson(10, 100)
 print(z)
 
-# plot random floats
+# plot poisson distribution
 ax = sns.displot(
-    z,
-    color='black',
-    discrete=False,
-    binwidth=0.01,
-    binrange=(0, 1),
+    x=z, color='black',
+    discrete=True,
     height=2,
     aspect=5/1
     )
 plt.savefig(
-    'random-floats.pdf',
+    'random-poisson.pdf',
     dpi=300,
     bbox_inches='tight',
     pad_inches=0
     )
-

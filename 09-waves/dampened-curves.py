@@ -18,12 +18,13 @@ import seaborn as sns
 # set theme
 sns.set_theme(
     context='paper', 
-    style="darkgrid"
+    style="darkgrid",
+    font = 'IBM Plex Sans'
     )
 
 # set variables
 steps = 200
-count = 10
+count = 5
 minimum = 0.2
 maximum = 0.6
 t = 4
@@ -37,22 +38,24 @@ x = np.linspace(0, t * np.pi, steps)
 f = np.linspace(maximum, minimum, count)
 for i in f:
     y = a * np.sin(b * x - c) * np.e**(-i * x) + d 
-    plot = sns.scatterplot(
+    plot = sns.lineplot(
         x=x,
         y=y,
-        size=x,
+        color='black',
         hue=i,
         hue_norm=(minimum, maximum),
-        palette='magma',
+        palette='Greys_r',
+        linewidth=1,
         legend=False
         )
 
-# save figure    
+# save plot
+plot.set_aspect('equal')
 fig = plot.get_figure()
-fig.set_size_inches(8.5, 2)
+fig.set_size_inches(4, 2)
 fig.savefig(
-    'dampened-waves.png',
-    dpi=300,
+    'dampened-curves.png',
+    dpi=1200,
     bbox_inches='tight',
     pad_inches=0
     )

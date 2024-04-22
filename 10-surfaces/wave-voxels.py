@@ -15,6 +15,8 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+# set theme
 sns.set(style = "whitegrid")
 
 # set variables

@@ -14,6 +14,8 @@ __version__ = "1.0.0"
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+# set theme
 sns.set(style = "whitegrid")
 
 # create plot
@@ -47,4 +49,8 @@ fig = ax.get_figure()
 
 # save as image
 fig.set_size_inches(8.5, 8.5)
-fig.savefig('random-point-cloud.png', dpi=300, bbox_inches='tight', pad_inches=0)
+fig.savefig(
+    'random-point-cloud.png',
+    dpi=300,
+    bbox_inches='tight',
+    pad_inches=0)

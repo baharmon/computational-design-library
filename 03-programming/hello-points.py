@@ -15,7 +15,7 @@ __version__ = "1.0.0"
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set(style = "whitegrid")
+sns.set_theme(style='whitegrid')
 
 # create plot
 ax = plt.subplot(projection='3d')
@@ -46,4 +46,9 @@ fig = ax.get_figure()
 
 # save as image
 fig.set_size_inches(8.5, 8.5)
-fig.savefig('hello-points.png', dpi=300, bbox_inches='tight', pad_inches=0)
+fig.savefig(
+    'hello-points.pdf',
+    dpi=300,
+    bbox_inches='tight',
+    pad_inches=0
+    )

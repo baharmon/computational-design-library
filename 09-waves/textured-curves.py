@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 """
-Plot dampened sinusoidal waves with the form:
-y = a sin(bx - c) + e^(-f * x)
+Plot textured sinusoidal waves with the form: y = a sin(bx - c) + d + sin(x)
 """
 
 __author__ = "Brendan Harmon"
@@ -18,41 +17,39 @@ import seaborn as sns
 # set theme
 sns.set_theme(
     context='paper', 
-    style="darkgrid"
+    style="darkgrid",
+    font = 'IBM Plex Sans'
     )
 
 # set variables
-steps = 200
-count = 10
-minimum = 0.2
-maximum = 0.6
-t = 4
-a = 2
-b = 2
+steps = 100
+count = 4
+minimum = 0.001
+maximum = 1.000
+t = 2
 c = 0
 d = 0
 
 # plot sinusoidal wave
 x = np.linspace(0, t * np.pi, steps)
-f = np.linspace(maximum, minimum, count)
-for i in f:
-    y = a * np.sin(b * x - c) * np.e**(-i * x) + d 
-    plot = sns.scatterplot(
+a = np.linspace(minimum, maximum, count)
+for i in a:
+    y = i * np.sin(i**-1 * x - c) + d + np.sin(x)
+    plot = sns.lineplot(
         x=x,
         y=y,
-        size=x,
-        hue=i,
-        hue_norm=(minimum, maximum),
-        palette='magma',
+        color='black',
+        linewidth=1,
         legend=False
         )
 
-# save figure    
+# save plot
+plot.set_aspect('equal')
 fig = plot.get_figure()
-fig.set_size_inches(8.5, 2)
+fig.set_size_inches(4, 2)
 fig.savefig(
-    'dampened-waves.png',
-    dpi=300,
+    'textured-curves.png',
+    dpi=1200,
     bbox_inches='tight',
     pad_inches=0
     )

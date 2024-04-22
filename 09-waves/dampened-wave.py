@@ -14,7 +14,12 @@ __version__ = "1.0.0"
 # import libraries
 import numpy as np
 import seaborn as sns
-sns.set_theme(context='paper', style='darkgrid')
+
+# set theme
+sns.set_theme(
+    context='paper', 
+    style="darkgrid"
+    )
 
 # set variables
 steps = 50
@@ -35,7 +40,6 @@ plot = sns.scatterplot(
     palette='viridis',
     legend=False
     )
-fig = plot.get_figure()
 
 # set variables
 steps = 200
@@ -57,6 +61,8 @@ plot = sns.scatterplot(
     palette='magma', 
     legend=False
     )
+
+# save figure
 fig = plot.get_figure()
 fig.set_size_inches(8.5, 2)
 fig.savefig(

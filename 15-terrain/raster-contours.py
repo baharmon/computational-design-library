@@ -22,7 +22,10 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import seaborn as sns
 
 # set style
-sns.set_style("white")
+sns.set_theme(
+    style="white",
+    font_scale=1.5
+    )
 
 # set path
 datapath = pathlib.Path(__file__).parent.resolve()

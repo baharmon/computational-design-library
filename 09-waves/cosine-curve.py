@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Plot a sine wave with the form y=sin(x)
+Plot a cosine wave with the form y=sin(x)
 """
 
 __author__ = "Brendan Harmon"
@@ -17,27 +17,40 @@ import seaborn as sns
 # set theme
 sns.set_theme(
     context='paper', 
-    style="darkgrid"
+    style="darkgrid",
+    font = 'IBM Plex Sans'
     )
 
 # plot sine wave
-x = np.linspace(0, 6 * np.pi, 100)
+x = np.linspace(0, 2 * np.pi, 100)
 y = np.sin(x)
-plot = sns.scatterplot(
+plot = sns.lineplot(
     x=x,
     y=y,
-    size=x,
-    hue=x,
-    palette='flare',
+    color='gray',
+    linewidth=1.5,
     legend=False
     )
 
-# save figure
+# plot cosine wave
+x = np.linspace(0, 2 * np.pi, 100)
+y = np.cos(x)
+plot = sns.lineplot(
+    x=x,
+    y=y,
+    color='black',
+    linewidth=1.5,
+    legend=False
+    )
+
+# save plot
+plot.set_aspect('equal')
 fig = plot.get_figure()
 fig.set_size_inches(8.5, 2)
 fig.savefig(
-    'sine-wave.png',
-    dpi=300,
+    'cosine-curve.png',
+    dpi=1200,
     bbox_inches='tight',
     pad_inches=0
     )
+

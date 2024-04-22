@@ -22,11 +22,14 @@ import numpy as np
 import seaborn as sns
 
 # set style
-sns.set_style("white")
+sns.set_theme(
+    style="white",
+    font_scale=1.5
+    )
 
 # set path
 datapath = pathlib.Path(__file__).parent.resolve()
-dataset = os.path.join(datapath, elevation.tif')
+dataset = os.path.join(datapath, 'elevation.tif')
 
 # read raster
 elevation = rio.open(dataset)

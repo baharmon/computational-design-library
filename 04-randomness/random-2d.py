@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Plot fullpage random matrix
+Plot 2D random matrix
 """
 
 __author__ = "Brendan Harmon"
@@ -16,8 +16,10 @@ import matplotlib.pyplot as plt
 from numpy.random import default_rng
 
 # set theme
-sns.set_theme(style="white")
-sns.set(font_scale=0.75)
+sns.set_theme(
+    style="white",
+    font_scale=0.75
+    )
 
 # create plot
 ax = plt.subplot()
@@ -29,7 +31,6 @@ u = int(height * 2)
 v = int(width * 2)
 rng = default_rng(1234)
 z = rng.integers(0, 10, (u, v))
-
 
 # generate heatmap
 sns.heatmap(
@@ -47,7 +48,7 @@ sns.heatmap(
 fig = ax.get_figure()
 fig.set_size_inches(width, height)
 fig.savefig(
-    'random-integer-page.pdf',
+    'random-integer-grid.pdf',
     dpi=300,
     bbox_inches='tight',
     pad_inches=0

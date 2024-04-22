@@ -52,7 +52,7 @@ z = perlin.genAsGrid(shape=shape)
 u = np.arange(0, i)
 v = np.arange(0, j)
 x, y = np.meshgrid(u, v)
-plot = ax.plot_surface(x, y, z, cmap='viridis', linewidth=0)
+plot = ax.plot_surface(x, y, z, cmap='cubehelix', linewidth=0)
 
 # set axes label
 ax.set_xlabel('x', labelpad=10)

@@ -13,7 +13,12 @@ __version__ = "1.0.0"
 # import libraries
 import numpy as np
 import seaborn as sns
-sns.set_theme(context='paper', style='darkgrid')
+
+# set theme
+sns.set_theme(
+    context='paper', 
+    style="darkgrid"
+    )
 
 # set variables
 steps = 100
@@ -38,10 +43,12 @@ for i in a:
         palette='flare',
         legend=False
         )
-    fig = plot.get_figure()
-    fig.set_size_inches(8.5, 2)
-    fig.savefig(
-        'textured-waves.png',
-        dpi=300,
-        bbox_inches='tight',
-        pad_inches=0)
+
+# save figure
+fig = plot.get_figure()
+fig.set_size_inches(8.5, 2)
+fig.savefig(
+    'textured-waves.png',
+    dpi=300,
+    bbox_inches='tight',
+    pad_inches=0)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Plot 2D matrix with Laplace distribution
+Plot 1D matrix with Laplace distribution
 """
 
 __author__ = "Brendan Harmon"
@@ -16,29 +16,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # set theme
-sns.set_theme(style="white")
+sns.set_theme(style="darkgrid")
 
-# create plot
-ax = plt.subplot()
+# generate laplace distribution
+rng = np.random.default_rng()
+z = rng.laplace(0, 10, 1000)
+print(z)
 
-# generate random array
-rng = np.random.default_rng(1234)
-z = rng.laplace(0, 1,(10, 10))
-
-# generate heatmap
-sns.heatmap(
-    z, 
-    cmap='viridis', 
-    linewidths=1, 
-    annot=True, 
-    cbar=False, 
-    yticklabels=False, 
-    xticklabels=False, 
-    square=True
+# plot laplace distribution
+ax = sns.displot(
+    x=z, color='black',
+    discrete=True,
+    height=2,
+    aspect=5/1
     )
-
-# save as image
-fig = ax.get_figure()
-fig.set_size_inches(8.5, 8.5)
-fig.savefig('random-laplace.png', dpi=300, bbox_inches='tight', pad_inches=0)
-
+plt.savefig(
+    'random-laplace.png',
+    dpi=300,
+    bbox_inches='tight',
+    pad_inches=0
+    )

@@ -12,6 +12,8 @@ __version__ = "1.0.0"
 
 # import libraries
 import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_theme(style='whitegrid')
 
 # set coordinates
 x = 0
@@ -38,7 +40,7 @@ fig = ax.get_figure()
 # save as image
 fig.set_size_inches(8.5, 8.5)
 fig.savefig(
-    'point.png',
+    'point.pdf',
     dpi=300,
     bbox_inches='tight',
     pad_inches=0

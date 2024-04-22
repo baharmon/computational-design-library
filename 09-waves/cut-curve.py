@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Plot a translated sinusoidal wave with the form: y = a sin(bx - c) + d
+Plot a cut sinusoidal wave with the form: y = a sin(bx - c) + d
 """
 
 __author__ = "Brendan Harmon"
@@ -17,7 +17,8 @@ import seaborn as sns
 # set theme
 sns.set_theme(
     context='paper', 
-    style="darkgrid"
+    style="darkgrid",
+    font = 'IBM Plex Sans'
     )
 
 # set variables
@@ -31,41 +32,40 @@ d = 0
 # plot sinusoidal wave
 x = np.linspace(0, t * np.pi, steps)
 y = a * np.sin(b * x - c) + d
-plot = sns.scatterplot(
+plot = sns.lineplot(
     x=x,
     y=y,
-    size=x,
-    hue=x,
-    palette='viridis',
+    color='darkgray',
+    linewidth=1.5,
     legend=False
     )
 
 # set variables
-steps = 100
-t = 2
+steps = 50
+t = 1
 a = 1
 b = 1
-c = 1.5
-d = 1
+c = 0
+d = 0
 
 # plot sinusoidal wave
 x = np.linspace(0, t * np.pi, steps)
 y = a * np.sin(b * x - c) + d
-plot = sns.scatterplot(
+plot = sns.lineplot(
     x=x,
     y=y,
-    size=x,
-    hue=x,
-    palette='magma',
+    color='black',
+    linewidth=1.5,
     legend=False
     )
 
-# save figure
+# save plot
+plot.set_aspect('equal')
 fig = plot.get_figure()
-fig.set_size_inches(8.5, 2)
+fig.set_size_inches(4, 2)
 fig.savefig(
-    'translated-wave.png',
-    dpi=300,
+    'cut-curve.png',
+    dpi=1200,
     bbox_inches='tight',
     pad_inches=0
     )
