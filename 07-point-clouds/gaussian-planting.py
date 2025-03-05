@@ -2,18 +2,19 @@
 #! python 3
 
 # requirements: numpy
+import Rhino.Collections as rc
+import Rhino.Geometry as rg
 import numpy as np
-import Rhino
-import rhinoscriptsyntax as rs
-import scriptcontext as sc
-sc.doc = Rhino.RhinoDoc.ActiveDoc
+import math
 
 if Run:
 
-    # create empty array
+    # create empty sets
+    points = rc.Point3dList()
     coordinates = np.empty(shape=[0, 3])
+    Clouds = []
 
-    # loop
+    # generate gaussian distribution of points
     for point in Points:
 
         # instantiate random number generator
@@ -29,23 +30,28 @@ if Run:
         # interweave coordinates
         xyz = np.column_stack((x, y, z))
 
-        # append arrays
-        coordinates = np.append(coordinates, xyz, axis=0)
+        # add points to list
+        xyz = xyz.tolist()
+        for coordinate in xyz:
+            point = rg.Point3d(
+                coordinate[0],
+                coordinate[1],
+                coordinate[2]
+                )
+            points.AddRange([point])
 
-    # create points
-    Points = rs.AddPoints(coordinates)
-
-    # loop
-    Clouds = []
+    # transform point clouds
+    Points = points
     for point in Points:
 
         # set variables
-        angle = rng.uniform(0.0, 360.0)
-        s = rng.uniform(0.5, 1.0)
-        scaling = (s, s, s)
+        vector = rg.Vector3d(0, 0, 1)
+        angle = math.pi / rng.uniform(0.0, 360.0)
+        scaling = rng.uniform(0.5, 1.0)
 
         # transform
-        transform = rs.CopyObject(Cloud, point)
-        transform = rs.RotateObject(transform, point, angle)
-        transform = rs.ScaleObject(transform, point, scaling)
+        transform = Cloud.DuplicateShallow()
+        transform.Rotate(angle, vector, point)
+        transform.Scale(scaling)
+        transform.Translate(point)
         Clouds.append(transform)
